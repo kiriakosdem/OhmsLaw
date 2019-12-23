@@ -11,6 +11,13 @@ let sliderVolt;
 let sliderAtoms;
 let mycanvas;
 let current = 0;
+let electron;
+let atom;
+
+function preload(){
+	electron = loadImage("images/lightning.png");
+	atom =  loadImage("images/atom.png");
+}
 
 
 function setup() {
@@ -37,7 +44,7 @@ function setup() {
 	
 	lblVolt = createElement('label','Διαφορά Δυναμικού: ');
 	lblVolt.parent('jscode');
-	lblVolt.position(sliderVolt.position().x,sliderVolt.position().y+sliderVolt.height);
+	lblVolt.position(sliderVolt.position().x,sliderVolt.position().y+1.5*sliderVolt.height);
 	
 	sliderAtoms = createSlider(0,100,70);
 	sliderAtoms.parent('jscode');
@@ -47,10 +54,10 @@ function setup() {
 	
 	lblAtoms= createElement('label','Τιμή Αντίστασης: ');
 	lblAtoms.parent('jscode');
-	lblAtoms.position(sliderAtoms.position().x,sliderAtoms.position().y+sliderAtoms.height);
+	lblAtoms.position(sliderAtoms.position().x,sliderAtoms.position().y+1.5*sliderAtoms.height);
 	
 	lblCurrent= createElement('label','Ηλεκτρικό Ρεύμα: ');
-	lblCurrent.parent('jscode');	lblCurrent.position(sliderAtoms.position().x*2,sliderAtoms.position().y+sliderAtoms.height);
+	lblCurrent.parent('jscode');	lblCurrent.position(sliderAtoms.position().x*2,sliderAtoms.position().y+1.5*sliderAtoms.height);
 	
 	//create objects
 	for (ip=0; ip<Nparticles; ip++){
@@ -64,7 +71,7 @@ function setup() {
 
 let time=1;
 function draw() {
-	background(40, 40, 40);
+	background(20, 0, 20);
 	lblVolt.html("Διαφορά Δυναμικού: " + sliderVolt.value() + 'V');
 	lblAtoms.html("Τιμή Αντίστασης: " + sliderAtoms.value() + 'Ω');
 	//current = sliderVolt.value()/sliderAtoms.value();

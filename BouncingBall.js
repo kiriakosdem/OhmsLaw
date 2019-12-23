@@ -28,10 +28,14 @@ show() {
 	}
 	
 	strokeWeight(1);
-	stroke(0,0,0,0);
+	stroke(0,0,10);
 	ellipse(this.x, this.y, this.diameter, this.diameter);
 	
-	//image(poolballimag, this.x - this.radius, this.y - this.radius, this.diameter, this.diameter);
+	if (velocitymag>0){	
+		//image(electron, this.x - this.radius, this.y - this.radius, this.diameter, this.diameter);
+	} else {
+		image(atom, this.x - this.radius, this.y - this.radius, this.diameter, this.diameter);
+	}
 }
 
 
